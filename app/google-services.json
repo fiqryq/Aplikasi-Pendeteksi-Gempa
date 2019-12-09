@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "615266268397",
+    "firebase_url": "https://gempa-9629b.firebaseio.com",
+    "project_id": "gempa-9629b",
+    "storage_bucket": "gempa-9629b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615266268397:android:e180acac6dadad8d7988e4",
+        "android_client_info": {
+          "package_name": "com.autumnleaves.pendeteksigempa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615266268397-anet7nfsc4psvg4t6m0bo3u94d65rirt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autumnleaves.pendeteksigempa",
+            "certificate_hash": "80044ea586272b9f7da147b7d726348c65d3fdc9"
+          }
+        },
+        {
+          "client_id": "615266268397-jmf76vnncghoble8k9rko15svbj9d1ls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJDyp7JjxQJahNmEfFxQogHco2Er6WvRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615266268397-jmf76vnncghoble8k9rko15svbj9d1ls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
