@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -14,13 +15,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.skyfishjy.library.RippleBackground;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private TextView textView;
     private Button delete;
+    private ImageView mAnimation;
 
-    NotificationHelper notificationHelper = new NotificationHelper(this);
 
     String pesan;
 
@@ -30,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textView);
         delete = findViewById(R.id.hapus);
+        mAnimation = findViewById(R.id.centerImage);
+
+        final NotificationHelper notificationHelper = new NotificationHelper(this);
+        final RippleBackground rippleBackground=(RippleBackground)findViewById(R.id.content);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Pesan");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -38,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
                 if (dataSnapshot.exists() == true) {
                     pesan = dataSnapshot.getValue().toString();
                     textView.setText(pesan + "");
+                    rippleBackground.startRippleAnimation();
                     notificationHelper.notify("Aplikasi Gempa", "Peesan" + pesan);
                 } else {
-                    textView.setText("Ngga ada gempa lur");
+                    textView.setText("Aman");
                 }
 
 
@@ -50,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 //
 //
 //                }
-
 
             }
 
@@ -64,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 databaseReference.removeValue();
+                rippleBackground.stopRippleAnimation();
             }
         });
     }

@@ -5,6 +5,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -16,9 +17,11 @@ public class NotificationHelper extends ContextWrapper {
 
     private static final String CHANNEL_NAME = "Main Notifications";
     private static final String CHANNEL_DESCRIPTION = "Notification description";
-    private static final String CHANNEL_ID = "MyNotificationChannel";
+    private static final String CHANNEL_ID = "NotificationChannelbaru";
     private static NotificationManager notificationManager;
     private Context base;
+    NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+
     public NotificationHelper(Context base) {
         super(base);
         this.base = base;
@@ -26,15 +29,16 @@ public class NotificationHelper extends ContextWrapper {
             createChannel();
         }
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void createChannel() {
-        NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
+
         notificationChannel.setDescription(CHANNEL_DESCRIPTION);
         notificationChannel.enableVibration(true);
         notificationChannel.enableLights(true);
         notificationChannel.canShowBadge();
         notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
-        notificationChannel.setLightColor(getResources().getColor(R.color.colorAccent));
+//        notificationChannel.setLightColor(getResources().getColor(R.color.colorAccent));
         getNotificationManager().createNotificationChannel(notificationChannel);
     }
     public NotificationManager getNotificationManager() {
@@ -51,6 +55,8 @@ public class NotificationHelper extends ContextWrapper {
         builder.setSmallIcon(R.drawable.ic_launcher_background);
         builder.setContentText(message);
         builder.setSound(notificationUri);
+        builder.setLights(0xFFFFFF00, 0, 2000);
+        builder.setVibrate(new long[]{1000, 2000, 3000, 4000});
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(message));
         getNotificationManager().notify(9001, builder.build());
     }
