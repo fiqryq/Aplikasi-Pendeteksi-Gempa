@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Color;
+import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -36,6 +37,8 @@ public class NotificationHelper extends ContextWrapper {
         notificationChannel.setDescription(CHANNEL_DESCRIPTION);
         notificationChannel.enableVibration(true);
         notificationChannel.enableLights(true);
+        notificationChannel.setLightColor(Color.RED);
+        notificationChannel.getSound();
         notificationChannel.canShowBadge();
         notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
 //        notificationChannel.setLightColor(getResources().getColor(R.color.colorAccent));
@@ -50,13 +53,22 @@ public class NotificationHelper extends ContextWrapper {
     // now lets create notification
     public void notify(String message, String title) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(base, CHANNEL_ID);
-        Uri notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        Uri notificationUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+
+
+//        Uri uri = Uri.parse("android.resource://"+this.getPackageName()+"/" + R.raw.aperturaabductores);
+//
+//        AudioAttributes att = new AudioAttributes.Builder()
+//                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+//                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+//                .build();
+//        notificationChannel.setSound(uri,att);
+
         builder.setContentTitle(title);
-        builder.setSmallIcon(R.drawable.ic_launcher_background);
+        builder.setSmallIcon(R.drawable.earthquake);
         builder.setContentText(message);
         builder.setSound(notificationUri);
-        builder.setLights(0xFFFFFF00, 0, 2000);
-        builder.setVibrate(new long[]{1000, 2000, 3000, 4000});
+        builder.setVibrate(new long[]{1000,1000,1000,1000});
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(message));
         getNotificationManager().notify(9001, builder.build());
     }

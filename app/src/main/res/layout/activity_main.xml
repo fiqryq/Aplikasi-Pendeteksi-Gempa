@@ -24,6 +24,7 @@
             android:id="@+id/centerImage"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:clickable="true"
             android:layout_centerInParent="true"
             android:src="@drawable/earthquake" />
 
@@ -33,27 +34,27 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/centerImage"
             android:layout_centerHorizontal="true"
-            android:paddingTop="20dp"
+            android:paddingTop="150dp"
             android:layout_marginBottom="-158dp"
-            android:text="Hello World!"
+            android:text="Aman"
             android:textColor="@color/abu"
             android:textSize="20dp" />
 
-        <Button
-            android:id="@+id/hapus"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@+id/centerImage"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="170dp"
-            android:layout_marginRight="70dp"
-            android:background="@drawable/button"
-            android:elevation="3dp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="Saya Tahu"
-            android:textColor="@color/putih"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+<!--        <Button-->
+<!--            android:id="@+id/hapus"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_below="@+id/centerImage"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="170dp"-->
+<!--            android:layout_marginRight="70dp"-->
+<!--            android:background="@drawable/button"-->
+<!--            android:elevation="3dp"-->
+<!--            android:fontFamily="sans-serif-smallcaps"-->
+<!--            android:text="Saya Tahu"-->
+<!--            android:textColor="@color/putih"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold" />-->
 
 
 

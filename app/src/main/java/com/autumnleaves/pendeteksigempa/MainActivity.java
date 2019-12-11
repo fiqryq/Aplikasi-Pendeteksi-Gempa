@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private TextView textView;
     private Button delete;
-    private ImageView mAnimation;
+    private ImageView updatedatabase;
 
 
     String pesan;
@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textView);
-        delete = findViewById(R.id.hapus);
-        mAnimation = findViewById(R.id.centerImage);
+//        delete = findViewById(R.id.hapus);
+        updatedatabase = findViewById(R.id.centerImage);
 
         final NotificationHelper notificationHelper = new NotificationHelper(this);
-        final RippleBackground rippleBackground=(RippleBackground)findViewById(R.id.content);
+        final RippleBackground rippleBackground = (RippleBackground) findViewById(R.id.content);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Pesan");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -49,15 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     textView.setText("Aman");
                 }
-
-
-//                if (TextUtils.isEmpty(pesan)) {
-//
-//                } else {
-//
-//
-//                }
-
             }
 
             @Override
@@ -66,12 +57,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        delete.setOnClickListener(new View.OnClickListener() {
+        updatedatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 databaseReference.removeValue();
                 rippleBackground.stopRippleAnimation();
             }
         });
+//
+//        delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                databaseReference.removeValue();
+//                rippleBackground.stopRippleAnimation();
+//            }
+//        });
     }
 }
