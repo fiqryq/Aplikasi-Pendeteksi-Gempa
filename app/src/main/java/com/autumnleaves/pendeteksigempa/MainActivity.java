@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button delete;
     private ImageView updatedatabase;
 //    remove idea
+//    remove idea
 
     String pesan;
 
