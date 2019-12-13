@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private Button delete;
     private ImageView updatedatabase;
-
+//    remove idea
 
     String pesan;
 
